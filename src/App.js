@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Typography } from "@material-ui/core";
+import "./App.css";
+import BooklistContainer from "./BookList/BooklistContainer";
+import BookDetailContainer from "./BookDetail/BookDetailContainer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Typography variant="h2" component="h2" data-test="heading">
+          Bookish   
+      </Typography>
+      <Routes>
+        <Route path="/" element={<BooklistContainer />} />
+        <Route path="/books/:bookId" element={<BookDetailContainer />} />
+      </Routes>
     </div>
   );
 }
-
 export default App;
